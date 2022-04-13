@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { HashRouter, Route, Routes } from "react-router-dom";
 
 import Layout from './components/LayOut';
 import Home from './components/Home';
@@ -13,7 +13,7 @@ import './App.css';
 
 function App() {
   return (
-      <BrowserRouter>
+      <HashRouter>
         <Layout>
           <Routes>
             <Route path='/' element={<Home />} />
@@ -24,7 +24,7 @@ function App() {
             <Route path="*" element={<Page404 />} />
           </Routes>
         </Layout>
-      </BrowserRouter>
+      </HashRouter>
   );
 }
 
