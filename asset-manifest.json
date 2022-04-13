@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/ra-diplom/static/css/main.54e4c48c.chunk.css",
+    "main.js": "/ra-diplom/static/js/main.cc14d5a7.chunk.js",
+    "main.js.map": "/ra-diplom/static/js/main.cc14d5a7.chunk.js.map",
+    "runtime-main.js": "/ra-diplom/static/js/runtime-main.7be8eb03.js",
+    "runtime-main.js.map": "/ra-diplom/static/js/runtime-main.7be8eb03.js.map",
+    "static/js/2.31716fc5.chunk.js": "/ra-diplom/static/js/2.31716fc5.chunk.js",
+    "static/js/2.31716fc5.chunk.js.map": "/ra-diplom/static/js/2.31716fc5.chunk.js.map",
+    "index.html": "/ra-diplom/index.html",
+    "precache-manifest.1d4c25d045740e0df24e194638febb9b.js": "/ra-diplom/precache-manifest.1d4c25d045740e0df24e194638febb9b.js",
+    "service-worker.js": "/ra-diplom/service-worker.js",
+    "static/css/main.54e4c48c.chunk.css.map": "/ra-diplom/static/css/main.54e4c48c.chunk.css.map",
+    "static/media/banner.jpg": "/ra-diplom/static/media/banner.d613d452.jpg",
+    "static/media/App.css": "/ra-diplom/static/media/footer-sprite.9c087d43.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.7be8eb03.js",
+    "static/js/2.31716fc5.chunk.js",
+    "static/css/main.54e4c48c.chunk.css",
+    "static/js/main.cc14d5a7.chunk.js"
+  ]
+}
