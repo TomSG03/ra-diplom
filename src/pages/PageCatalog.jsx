@@ -1,20 +1,21 @@
 import React from 'react'
 import Catalog from '../components/Catalog'
-import TopList from '../components/TopList'
+import CatalogSearch from '../components/CatalogSearch'
 
 import { useDispatch } from 'react-redux';
 import { resetCatalog } from '../reducers/reducerCatalog'
 
-function Home() {
+function PageCatalog() {
   const dispatch = useDispatch();
   dispatch(resetCatalog())
 
   return (
     <div>
-      <TopList />
-      <Catalog />
+      <Catalog>
+        <CatalogSearch />
+      </Catalog>
     </div>
   )
 }
 
-export default Home
+export default PageCatalog

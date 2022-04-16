@@ -3,7 +3,7 @@ import { HashRouter as Router , Route, Routes } from "react-router-dom";
 
 import Layout from './components/LayOut';
 import Home from './pages/Home';
-import Catalog from './pages/Catalog';
+import PageCatalog from './pages/PageCatalog';
 import About from './pages/About';
 import Contacts from './pages/Contacts';
 // import Cart from './components/Cart';
@@ -17,7 +17,7 @@ function App() {
         <Layout>
           <Routes>
             <Route path='/' element={<Home />} />
-            <Route path='/catalog' element={<Catalog />} />
+            <Route path='/catalog' element={<PageCatalog />} />
             <Route path='/about' element={<About />} />
             <Route path='/contacts' element={<Contacts />} />
             {/* <Route path='/cart' element={<Cart />} /> */}

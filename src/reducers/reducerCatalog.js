@@ -3,7 +3,8 @@ import { createSlice } from '@reduxjs/toolkit';
 const initialState = {
   items: [],
   categories: [],
-  categorySelectId: 0,
+  categoryId: 0,
+  more: 0,
   loading: false,
   error: null,
 }
@@ -22,9 +23,10 @@ const reducerCatalog = createSlice({
 
     catalogRequestSusccess(state, action) {
       const items = action.payload;
+      const copy = [...state.items, ...items];
       return {
         ...state,
-        items,
+        items: copy,
         loading: false,
         error: null,
       };
@@ -47,9 +49,39 @@ const reducerCatalog = createSlice({
         loading: false,
         error,
       };
+    },
+
+    selectCategory(state, action) {
+      const categoryId = action.payload;
+      return {
+        ...state,
+        items: [],
+        more: 0,
+        categoryId
+      };
+    },
+
+    loadMore(state, action) {
+      const more = state.more + action.payload;
+      return {
+        ...state,
+        more
+      };
+    },
+
+    resetCatalog() {
+      return initialState;
     }
   }
 })
 
-export const { catalogRequest, catalogRequestSusccess, categoriesRequestSusccess, catalogRequestFailure } = reducerCatalog.actions;
+export const { 
+  selectCategory, 
+  catalogRequest, 
+  catalogRequestSusccess, 
+  categoriesRequestSusccess, 
+  catalogRequestFailure,
+  loadMore,
+  resetCatalog
+} = reducerCatalog.actions;
 export default reducerCatalog.reducer;

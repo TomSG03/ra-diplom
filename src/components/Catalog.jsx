@@ -1,35 +1,29 @@
 import React, { useEffect } from 'react'
-import { useSelector, useDispatch } from 'react-redux';
-import { fetchTotal } from '../actions/actionsCatalog';
 import Categories from './Categories';
-import CatalogItem from './CatalogItem';
+import CatalogList from './CatalogList';
 import Loader from './Loader';
-
+import { useSelector, useDispatch } from 'react-redux';
+import { fetchCatalog } from '../actions/actionsCatalog';
 
 function Catalog(props) {
-  const { items, loading, error } = useSelector(state => state.reducerCatalog);
+  const { items, loading, error, categoryId, more } = useSelector(state => state.reducerCatalog);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    fetchTotal(dispatch)
-  }, [dispatch])
+    fetchCatalog(dispatch, categoryId, more)
+  }, [dispatch, categoryId, more])
 
-  if (loading) {
-    return <Loader />
-  }
-
-  if (items && !loading) {
+  if (items) {
     return (
-      <section className="catalog">
-        <h2 className="text-center">Каталог</h2>
-        <Categories />
-        {props.children}
-        <div className="row">
-          {items.map((e) => (
-            <CatalogItem item={e} key={e.id} />
-          ))}
-        </div>
-      </section>
+      <>
+        {items &&
+          <CatalogList items={items}>
+            {props.children}
+            <Categories />
+          </CatalogList>
+        }
+        {loading && <Loader />}
+      </>
     )
   }
 }
