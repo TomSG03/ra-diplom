@@ -2,6 +2,8 @@ import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
   items: [],
+  categories: [],
+  categorySelectId: 0,
   loading: false,
   error: null,
 }
@@ -28,6 +30,16 @@ const reducerCatalog = createSlice({
       };
     },
 
+    categoriesRequestSusccess(state, action) {
+      const categories = action.payload;
+      return {
+        ...state,
+        categories,
+        loading: false,
+        error: null,
+      };
+    },
+
     catalogRequestFailure(state, action) {
       const error = action.payload;
       return {
@@ -39,5 +51,5 @@ const reducerCatalog = createSlice({
   }
 })
 
-export const { catalogRequest, catalogRequestSusccess, catalogRequestFailure } = reducerCatalog.actions;
+export const { catalogRequest, catalogRequestSusccess, categoriesRequestSusccess, catalogRequestFailure } = reducerCatalog.actions;
 export default reducerCatalog.reducer;
