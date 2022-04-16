@@ -12,17 +12,16 @@ export default function Categories() {
     fetchCategories(dispatch)
   }, [dispatch])
 
-  if (loading) {
-    return <Loader />
-  }
-
   const allCategories = [{ id: 0, title: "Все" }, ...categories];
 
   return (
-    <ul className="catalog-categories nav justify-content-center">
-      {allCategories.map((item) => (
-        <CategoriesItem item={item} key={item.id} />
-      ))}
-    </ul>
+    <>
+      {categories && <ul className="catalog-categories nav justify-content-center">
+        {allCategories.map((item) => (
+          <CategoriesItem item={item} key={item.id} />
+        ))}
+      </ul>}
+      {loading && <Loader />}
+    </>
   )
 }
