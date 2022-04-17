@@ -5,16 +5,37 @@ import {
   categoriesRequestSusccess,
 } from '../reducers/reducerCatalog';
 
-export const fetchCatalog = async (dispatch, id = 0, more = 0) => {
-  let path  = id === 0 ? '/api/items' : `/api/items?categoryId=${id}`;
-  if (more > 0 && id === 0) {
+function createPathRequest(id, more, search) {
+  // http://localhost:7070/api/items?q=Кеды
+  // http://localhost:7070/api/items?q=Кеды&categoryId=13
+  // http://localhost:7070/api/items?q=Кеды&offset=6
+
+  let path = '/api/items';
+
+  if (id > 0 || more > 0 || search !== '') {
     path += '?'
-  } else if (more > 0 && id > 0) {
-    path += '&'
+  } else {
+    return path;
+  }  
+
+  if (search !== '') {
+    path += `q=${search}&`
   }
+
   if (more > 0) {
-    path += `offset=${more}`
+    path += `offset=${more}&`
   }
+
+  if (id !== 0) {
+    path += `categoryId=${id}&`
+  }
+
+  return path.slice(0, -1);
+}
+
+export const fetchCatalog = async (dispatch, id = 0, more = 0, search = '') => {
+  const path = createPathRequest(id, more, search);
+
   dispatch(catalogRequest());
   try {
     const response = await fetch(`${process.env.REACT_APP_API_URL}${path}`);

@@ -6,12 +6,12 @@ import { useSelector, useDispatch } from 'react-redux';
 import { fetchCatalog } from '../actions/actionsCatalog';
 
 function Catalog(props) {
-  const { items, loading, error, categoryId, more } = useSelector(state => state.reducerCatalog);
+  const { items, loading, error, categoryId, more, searchCatalogItem } = useSelector(state => state.reducerCatalog);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    fetchCatalog(dispatch, categoryId, more)
-  }, [dispatch, categoryId, more])
+    fetchCatalog(dispatch, categoryId, more, searchCatalogItem)
+  }, [dispatch, categoryId, more, searchCatalogItem])
 
   if (items) {
     return (

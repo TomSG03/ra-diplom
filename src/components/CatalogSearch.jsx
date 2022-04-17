@@ -1,5 +1,6 @@
 import React from 'react';
 import { onChangeCatalogSearch } from '../reducers/reducerCatalogSearch';
+import { submitSearch } from '../reducers/reducerCatalog';
 import { useSelector, useDispatch } from 'react-redux';
 
 export default function CatalogSearch() {
@@ -12,9 +13,7 @@ export default function CatalogSearch() {
 
   const handlerSubmit = (e) => {
     e.preventDefault();
-    if (catalogSearch.trim()) {
-      console.log(catalogSearch);
-    }
+    dispatch(submitSearch(catalogSearch))
   }
 
   return (

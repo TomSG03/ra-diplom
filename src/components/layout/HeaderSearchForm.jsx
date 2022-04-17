@@ -1,8 +1,9 @@
 import React from 'react';
 import { onChange, resetSearch } from '../../reducers/reducerHeadSearch';
 import { onChangeCatalogSearch } from '../../reducers/reducerCatalogSearch';
+import { submitSearch } from '../../reducers/reducerCatalog';
 import { useSelector, useDispatch } from 'react-redux';
-import { useNavigate  } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 function HeaderSearchForm() {
   const { search, visible } = useSelector(state => state.reducerHeadSearch);
@@ -16,9 +17,10 @@ function HeaderSearchForm() {
   const handlerSubmit = (e) => {
     e.preventDefault();
     if (search.trim()) {
+      dispatch(submitSearch(search))
       dispatch(onChangeCatalogSearch(search))
-      navigate('/catalog');
       dispatch(resetSearch())
+      navigate('/catalog');
     }
   }
 

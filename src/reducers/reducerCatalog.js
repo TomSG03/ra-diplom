@@ -5,6 +5,7 @@ const initialState = {
   categories: [],
   categoryId: 0,
   more: 0,
+  searchCatalogItem: '',
   loading: false,
   error: null,
 }
@@ -69,9 +70,19 @@ const reducerCatalog = createSlice({
       };
     },
 
+    submitSearch(state, action) {
+      const searchCatalogItem = action.payload;
+      return {
+        ...state,
+        searchCatalogItem,
+        items: [],
+        more: 0,
+      };
+    },
+
     resetCatalog() {
       return initialState;
-    }
+    },
   }
 })
 
@@ -82,6 +93,7 @@ export const {
   categoriesRequestSusccess, 
   catalogRequestFailure,
   loadMore,
-  resetCatalog
+  resetCatalog,
+  submitSearch,
 } = reducerCatalog.actions;
 export default reducerCatalog.reducer;
