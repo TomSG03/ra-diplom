@@ -1,6 +1,8 @@
 import { configureStore } from '@reduxjs/toolkit';
 import reducerTopList from '../reducers/reducerTopList';
 import reducerCatalog from '../reducers/reducerCatalog';
+import reducerHeadSearch from '../reducers/reducerHeadSearch';
+import reducerCatalogSearch from '../reducers/reducerCatalogSearch'
 // import { applyMiddleware, compose, combineReducers } from "redux";
 // import thunk from "redux-thunk";
 
@@ -8,7 +10,9 @@ import reducerCatalog from '../reducers/reducerCatalog';
 const store = configureStore({
   reducer: {
     reducerTopList,
-    reducerCatalog
+    reducerCatalog,
+    reducerHeadSearch,
+    reducerCatalogSearch
   }
 });
 
