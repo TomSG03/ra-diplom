@@ -1,23 +1,23 @@
 {
   "files": {
-    "main.css": "/ra-diplom/static/css/main.54e4c48c.chunk.css",
-    "main.js": "/ra-diplom/static/js/main.69279628.chunk.js",
-    "main.js.map": "/ra-diplom/static/js/main.69279628.chunk.js.map",
+    "main.css": "/ra-diplom/static/css/main.9e5d2e19.chunk.css",
+    "main.js": "/ra-diplom/static/js/main.6b7b9824.chunk.js",
+    "main.js.map": "/ra-diplom/static/js/main.6b7b9824.chunk.js.map",
     "runtime-main.js": "/ra-diplom/static/js/runtime-main.7be8eb03.js",
     "runtime-main.js.map": "/ra-diplom/static/js/runtime-main.7be8eb03.js.map",
-    "static/js/2.6943336c.chunk.js": "/ra-diplom/static/js/2.6943336c.chunk.js",
-    "static/js/2.6943336c.chunk.js.map": "/ra-diplom/static/js/2.6943336c.chunk.js.map",
+    "static/js/2.c0d6ee8e.chunk.js": "/ra-diplom/static/js/2.c0d6ee8e.chunk.js",
+    "static/js/2.c0d6ee8e.chunk.js.map": "/ra-diplom/static/js/2.c0d6ee8e.chunk.js.map",
     "index.html": "/ra-diplom/index.html",
-    "precache-manifest.296513059db3eedde53e4cfeaf502879.js": "/ra-diplom/precache-manifest.296513059db3eedde53e4cfeaf502879.js",
+    "precache-manifest.e1a5d77d13f63cb635c807de826d58eb.js": "/ra-diplom/precache-manifest.e1a5d77d13f63cb635c807de826d58eb.js",
     "service-worker.js": "/ra-diplom/service-worker.js",
-    "static/css/main.54e4c48c.chunk.css.map": "/ra-diplom/static/css/main.54e4c48c.chunk.css.map",
+    "static/css/main.9e5d2e19.chunk.css.map": "/ra-diplom/static/css/main.9e5d2e19.chunk.css.map",
     "static/media/banner.jpg": "/ra-diplom/static/media/banner.d613d452.jpg",
     "static/media/App.css": "/ra-diplom/static/media/footer-sprite.9c087d43.png"
   },
   "entrypoints": [
     "static/js/runtime-main.7be8eb03.js",
-    "static/js/2.6943336c.chunk.js",
-    "static/css/main.54e4c48c.chunk.css",
-    "static/js/main.69279628.chunk.js"
+    "static/js/2.c0d6ee8e.chunk.js",
+    "static/css/main.9e5d2e19.chunk.css",
+    "static/js/main.6b7b9824.chunk.js"
   ]
 }
