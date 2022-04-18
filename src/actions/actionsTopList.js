@@ -8,7 +8,7 @@ export const fetchTL = async (dispatch) => {
       throw new Error(response.statusText);
     }
     const data = await response.json();
-    console.log(data);
+    // console.log(data);
     dispatch(tlRequestSusccess(data));
   } catch (e) {
     dispatch(tlRequestFailure(e.message));

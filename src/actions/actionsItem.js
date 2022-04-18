@@ -1,0 +1,16 @@
+import { itemRequest, itemRequestSusccess, itemRequestFailure } from '../reducers/reducerItem';
+
+export const fetchItem = async (dispatch, id) => {
+  dispatch(itemRequest());
+  try {
+    const response = await fetch(`${process.env.REACT_APP_API_URL}/api/items/${id}`)
+    if (!response.ok) {
+      throw new Error(response.statusText);
+    }
+    const data = await response.json();
+    console.log(data);
+    dispatch(itemRequestSusccess(data));
+  } catch (e) {
+    dispatch(itemRequestFailure(e.message));
+  }
+}

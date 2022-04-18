@@ -1,4 +1,5 @@
 import { configureStore } from '@reduxjs/toolkit';
+import reducerItem from '../reducers/reducerItem';
 import reducerTopList from '../reducers/reducerTopList';
 import reducerCatalog from '../reducers/reducerCatalog';
 import reducerHeadSearch from '../reducers/reducerHeadSearch';
@@ -12,7 +13,8 @@ const store = configureStore({
     reducerTopList,
     reducerCatalog,
     reducerHeadSearch,
-    reducerCatalogSearch
+    reducerCatalogSearch,
+    reducerItem
   }
 });
 

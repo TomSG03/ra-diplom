@@ -10,6 +10,7 @@ import Contacts from './pages/Contacts';
 import Page404 from './pages/Page404';
 
 import './App.css';
+import PageItem from './pages/PageItem';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           <Routes>
             <Route path='/' element={<Home />} />
             <Route path='/catalog' element={<PageCatalog />} />
+            <Route path='/catalog/:id' element={<PageItem />} />
             <Route path='/about' element={<About />} />
             <Route path='/contacts' element={<Contacts />} />
             {/* <Route path='/cart' element={<Cart />} /> */}
