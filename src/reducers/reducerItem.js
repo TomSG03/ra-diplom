@@ -7,7 +7,7 @@ const initialState = {
 }
 
 const reducerItem = createSlice({
-  name: 'reducerTopList',
+  name: 'reducerItem',
   initialState: initialState,
   reducers: {
     itemRequest(state) {

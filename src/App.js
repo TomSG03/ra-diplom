@@ -6,7 +6,7 @@ import Home from './pages/Home';
 import PageCatalog from './pages/PageCatalog';
 import About from './pages/About';
 import Contacts from './pages/Contacts';
-// import Cart from './components/Cart';
+import Cart from './components/Cart';
 import Page404 from './pages/Page404';
 
 import './App.css';
@@ -22,7 +22,7 @@ function App() {
             <Route path='/catalog/:id' element={<PageItem />} />
             <Route path='/about' element={<About />} />
             <Route path='/contacts' element={<Contacts />} />
-            {/* <Route path='/cart' element={<Cart />} /> */}
+            <Route path='/cart' element={<Cart />} />
             <Route path="*" element={<Page404 />} />
           </Routes>
         </Layout>

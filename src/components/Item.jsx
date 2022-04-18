@@ -1,9 +1,10 @@
-import React, { useState } from 'react'
-
+import React, { useState } from 'react';
+import { useNavigate  } from 'react-router-dom';
 
 function Item({ item }) {
   const [size, setSize] = useState(null);
   const [count, setCount] = useState(0);
+  const navigate = useNavigate();
 
   const handlerClickSize = ({ target }) => {
     setSize(Number(target.dataset.id))
@@ -15,6 +16,10 @@ function Item({ item }) {
     if (sizeCopy > 10) sizeCopy = 10; 
     if (sizeCopy < 0) sizeCopy = 0; 
     setCount(sizeCopy)
+  }
+
+  const handlerClickCart = () => {
+    navigate('/cart');
   }
 
   const sizes = item.sizes.map((e, index) => e.avalible ? <span className={size === index ? "catalog-item-size selected" : "catalog-item-size"} key={index} data-id={index} onClick={handlerClickSize}>{e.size}</span> : '')
@@ -64,7 +69,7 @@ function Item({ item }) {
             </span>
             </p>
           </div>
-          <button className="btn btn-danger btn-block btn-lg" disabled={(count > 0) && (size !== null) ? false : true}>В корзину</button>
+          <button className="btn btn-danger btn-block btn-lg" disabled={(count > 0) && (size !== null) ? false : true} onClick={handlerClickCart}>В корзину</button>
         </div>
       </div>
     </section>

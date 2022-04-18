@@ -1,4 +1,5 @@
 import React from 'react';
+import HeaderCart from './HeaderCart';
 import HeaderLogo from './HeaderLogo';
 import HeaderMenu from './HeaderMenu';
 import HeaderSearchButton from './HeaderSearchButton';
@@ -13,11 +14,7 @@ function HeaderNavBar() {
               <div>
                 <div className="header-controls-pics">
                   <HeaderSearchButton />
-                  {/* <!-- Do programmatic navigation on click to /cart.html --> */}
-                  <div className="header-controls-pic header-controls-cart">
-                    <div className="header-controls-cart-full">1</div>
-                    <div className="header-controls-cart-menu"></div>
-                  </div>
+                  <HeaderCart />
                 </div>
                 <HeaderSearchForm />
               </div>
