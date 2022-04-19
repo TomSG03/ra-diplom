@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux';
 
 
 export default function HeaderCart() {
-  const { countItems } = useSelector(state => state.reducerCart);
+  const { items } = useSelector(state => state.reducerCart);
   const navigate = useNavigate();
 
   const handlerCliclCart = () => {
@@ -13,7 +13,7 @@ export default function HeaderCart() {
 
   return (
     <div className="header-controls-pic header-controls-cart" onClick={handlerCliclCart}>
-      {(countItems > 0 ) && <div className="header-controls-cart-full">{countItems}</div>}
+      {(items.length > 0 ) && <div className="header-controls-cart-full">{items.length}</div>}
       <div className="header-controls-cart-menu"></div>
     </div>
   )

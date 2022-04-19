@@ -24,6 +24,7 @@ const reducerCatalog = createSlice({
 
     catalogRequestSusccess(state, action) {
       const items = action.payload;
+      
       const copy = [...state.items, ...items];
       return {
         ...state,

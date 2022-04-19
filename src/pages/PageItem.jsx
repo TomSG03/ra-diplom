@@ -20,6 +20,7 @@ function PageItem() {
     <>
       {item && <Item item={item} />}
       {loading && <Loader />}
+      {error && <h2 className="text-center">Ошибка. Попробуйте еще раз.</h2>}
     </>
     
 

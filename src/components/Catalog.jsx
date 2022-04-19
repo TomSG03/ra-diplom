@@ -6,7 +6,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { fetchCatalog } from '../actions/actionsCatalog';
 
 function Catalog(props) {
-  const { items, loading, error, categoryId, more, searchCatalogItem } = useSelector(state => state.reducerCatalog);
+  const { items, loading, error, categoryId, more, noMore, searchCatalogItem } = useSelector(state => state.reducerCatalog);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -17,12 +17,13 @@ function Catalog(props) {
     return (
       <>
         {items &&
-          <CatalogList items={items}>
+          <CatalogList items={items} noMore={noMore}>
             {props.children}
             <Categories />
           </CatalogList>
-        }
+         } 
         {loading && <Loader />}
+        {/* {error && <h2 className="text-center">Ошибка. Попробуйте еще раз.</h2>} */}
       </>
     )
   }
