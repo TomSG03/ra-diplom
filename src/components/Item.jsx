@@ -1,7 +1,10 @@
 import React, { useState } from 'react';
 import { useNavigate  } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { cartAddItem } from '../reducers/reducerCart';
 
 function Item({ item }) {
+  const dispatch = useDispatch();
   const [size, setSize] = useState(null);
   const [count, setCount] = useState(0);
   const navigate = useNavigate();
@@ -10,20 +13,28 @@ function Item({ item }) {
     setSize(Number(target.dataset.id))
   }
 
-  const handlerClickCount = (e) => {
-    const num = Number(e.target.name);
-    let sizeCopy = count + num;
+  const handlerClickCount = (x) => {
+    let sizeCopy = count + x;
     if (sizeCopy > 10) sizeCopy = 10; 
     if (sizeCopy < 0) sizeCopy = 0; 
     setCount(sizeCopy)
   }
 
   const handlerClickCart = () => {
+    const toCard = {
+      id: item.id,
+      title: item.title,
+      size:  item.sizes[size].size,
+      count: count,
+      price: item.price
+    }
+    dispatch(cartAddItem(toCard))
     navigate('/cart');
   }
 
+  const countSizes = item.sizes.filter((e) => e.avalible === true).length;
   const sizes = item.sizes.map((e, index) => e.avalible ? <span className={size === index ? "catalog-item-size selected" : "catalog-item-size"} key={index} data-id={index} onClick={handlerClickSize}>{e.size}</span> : '')
-
+  
   return (
     <section className="catalog-item">
       <h2 className="text-center">{item.title}</h2>
@@ -61,15 +72,15 @@ function Item({ item }) {
             </tbody>
           </table>
           <div className="text-center">
-            <p>Размеры в наличии: {sizes}</p>
-            <p>Количество: <span className="btn-group btn-group-sm pl-2">
-              <button className="btn btn-secondary" onClick={handlerClickCount} name='-1'>-</button>
+            {(countSizes > 0) ? <p>Размеры в наличии: {sizes}</p> : <p>Нет в наличии</p>}
+            {(countSizes > 0) && <p>Количество: <span className="btn-group btn-group-sm pl-2">
+              <button className="btn btn-secondary" onClick={() => handlerClickCount(-1)}>-</button>
               <span className="btn btn-outline-primary">{count}</span>
-              <button className="btn btn-secondary" onClick={handlerClickCount} name='+1'>+</button>
+              <button className="btn btn-secondary" onClick={() => handlerClickCount(1)}>+</button>
             </span>
-            </p>
+            </p>}
           </div>
-          <button className="btn btn-danger btn-block btn-lg" disabled={(count > 0) && (size !== null) ? false : true} onClick={handlerClickCart}>В корзину</button>
+          {(countSizes > 0) && <button className="btn btn-danger btn-block btn-lg" disabled={(count > 0) && (size !== null) ? false : true} onClick={handlerClickCart}>В корзину</button>}
         </div>
       </div>
     </section>

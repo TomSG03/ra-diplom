@@ -8,7 +8,7 @@ export const fetchItem = async (dispatch, id) => {
       throw new Error(response.statusText);
     }
     const data = await response.json();
-    console.log(data);
+    // console.log(data);
     dispatch(itemRequestSusccess(data));
   } catch (e) {
     dispatch(itemRequestFailure(e.message));

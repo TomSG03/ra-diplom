@@ -10,10 +10,10 @@ function Home() {
   dispatch(resetCatalog())
 
   return (
-    <div>
+    <>
       <TopList />
       <Catalog />
-    </div>
+    </>
   )
 }
 
