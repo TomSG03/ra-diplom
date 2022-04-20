@@ -5,6 +5,7 @@ const initialState = {
   categories: [],
   categoryId: 0,
   more: 0,
+  noMore: false,
   searchCatalogItem: '',
   loading: false,
   error: null,
@@ -24,13 +25,14 @@ const reducerCatalog = createSlice({
 
     catalogRequestSusccess(state, action) {
       const items = action.payload;
-      
+      const noMore = items.length < 6 ? true : false;
       const copy = [...state.items, ...items];
       return {
         ...state,
         items: copy,
         loading: false,
         error: null,
+        noMore
       };
     },
 
@@ -59,7 +61,8 @@ const reducerCatalog = createSlice({
         ...state,
         items: [],
         more: 0,
-        categoryId
+        categoryId,
+        noMore: false
       };
     },
 
@@ -78,6 +81,7 @@ const reducerCatalog = createSlice({
         searchCatalogItem,
         items: [],
         more: 0,
+        noMore: false
       };
     },
 

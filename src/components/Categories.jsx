@@ -1,11 +1,10 @@
 import React, { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux';
-import Loader from './Loader';
 import { fetchCategories } from '../actions/actionsCatalog';
 import CategoriesItem from './CategoriesItem';
 
 export default function Categories() {
-  const { categories, loading, error } = useSelector(state => state.reducerCatalog);
+  const { categories } = useSelector(state => state.reducerCatalog);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -16,13 +15,11 @@ export default function Categories() {
 
   return (
     <>
-      {categories && <ul className="catalog-categories nav justify-content-center">
+      {categories.length > 1 && <ul className="catalog-categories nav justify-content-center">
         {allCategories.map((item) => (
           <CategoriesItem item={item} key={item.id} />
         ))}
       </ul>}
-      {loading && <Loader />}
-      {error && <h2 className="text-center">Ошибка. Попробуйте еще раз.</h2>}
     </>
   )
 }
