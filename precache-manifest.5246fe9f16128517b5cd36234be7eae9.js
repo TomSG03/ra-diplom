@@ -1,19 +1,19 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "02306cfa0bde25616ac9ba6c41be90d5",
+    "revision": "ab5e50e34401dcba78afa164d5ab1eb3",
     "url": "/ra-diplom/index.html"
   },
   {
-    "revision": "e2254a2e9184ae94f3ac",
+    "revision": "0837a7b164cba8331462",
     "url": "/ra-diplom/static/css/main.6b5195fc.chunk.css"
   },
   {
-    "revision": "be4158fec8a263407747",
-    "url": "/ra-diplom/static/js/2.ddad336f.chunk.js"
+    "revision": "1ba845e68f53f78ca01d",
+    "url": "/ra-diplom/static/js/2.c0bb0c21.chunk.js"
   },
   {
-    "revision": "e2254a2e9184ae94f3ac",
-    "url": "/ra-diplom/static/js/main.989230a8.chunk.js"
+    "revision": "0837a7b164cba8331462",
+    "url": "/ra-diplom/static/js/main.07e84956.chunk.js"
   },
   {
     "revision": "d2edb09691cd509dd539",
