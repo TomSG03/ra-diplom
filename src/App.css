@@ -331,3 +331,8 @@ h2, .h2 {
 .card-body {
   flex: 0 0 auto;
 }
+
+.cart-warning {
+  margin-top: 20px;
+  text-align: center;
+}

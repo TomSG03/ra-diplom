@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from "react-redux";
 import { postOrder, cartReset } from '../reducers/reducerCart';
+import Loader from '../components/Loader'
 
 function CartOrder() {
   const [message, setMessage] = useState('');
-  const { status } = useSelector(state => state.reducerCart);
+  const { status, items } = useSelector(state => state.reducerCart);
 
   const START_STATE = { phone: "", address: "", agreement: false };
   const [form, setForm] = useState(START_STATE);
@@ -20,27 +21,24 @@ function CartOrder() {
     e.preventDefault();
     dispatch(postOrder({ phone: form.phone, address: form.address })).then(() => {
       setForm(START_STATE);
-      dispatch(cartReset());
-      // setTimeout(() => dispatch(cartReset()), 4 * 1000)
+      setTimeout(() => dispatch(cartReset()), 3 * 1000)
     });
   };
 
   const showMessage = (text) => {
     setMessage(text);
-    setTimeout(() => {
-       setMessage('');
-    }, 6 * 1000);
- };
+    setTimeout(() => setMessage(''), 2 * 1000);
+  };
 
- useEffect(() => {
+  useEffect(() => {
     if (status === 'pending') showMessage('Оформляем покупку, пожалуйста подождите');
     if (status === 'success') showMessage('✔️ Заказ успешно оформлен, спасибо за покупку!');
     if (status === 'error') showMessage('⚠️ Что-то пошло не так, пожалуйста попробуйте позже!');
- }, [status]);
+  }, [status]);
 
   return (
     <>
-      <section className="order">
+      {(items.length > 0 && status === 'idle') ? <section className="order">
         <h2 className="text-center">Оформить заказ</h2>
         <div className="card" style={{ maxWidth: '30rem', margin: '0 auto' }}>
           <form className="card-body" onSubmit={handleSubmit}>
@@ -59,8 +57,11 @@ function CartOrder() {
             <button type="submit" className="btn btn-outline-secondary" disabled={!form.agreement}>Оформить</button>
           </form>
         </div>
+      </section> :
+      <section className="order">
         <div className="cart-warning">{message}</div>
-      </section>
+        {items.length > 0 && <Loader />}
+      </section>}
     </>
   )
 }
