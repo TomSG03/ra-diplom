@@ -33,7 +33,7 @@ function createPathRequest(id, more, search) {
   return path.slice(0, -1);
 }
 
-export const fetchCatalog = async (dispatch, id = 0, more = 0, search = '') => {
+export const fetchCatalogThunkCreator = (id = 0, more = 0, search = '') => async (dispatch) => {
   const path = createPathRequest(id, more, search);
 
   dispatch(catalogRequest());

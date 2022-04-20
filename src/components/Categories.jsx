@@ -8,7 +8,7 @@ export default function Categories() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    fetchCategories(dispatch)
+    dispatch(fetchCategories)
   }, [dispatch])
 
   const allCategories = [{ id: 0, title: "Все" }, ...categories];

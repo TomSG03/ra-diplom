@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 
 import CatalogItems from './CatalogItems';
 import CatalogMoreButton from './CatalogMoreButton';
-import { fetchCatalog } from '../actions/actionsCatalog';
+import { fetchCatalogThunkCreator } from '../actions/actionsCatalog';
 import Loader from './Loader';
 
 function CatalogList(props) {
@@ -11,7 +11,7 @@ function CatalogList(props) {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    fetchCatalog(dispatch, categoryId, more, searchCatalogItem)
+    dispatch(fetchCatalogThunkCreator(categoryId, more, searchCatalogItem))
   }, [dispatch, categoryId, more, searchCatalogItem])
 
   return (

@@ -9,42 +9,26 @@ import {
   saveToLocalStorage,
   loadFromLocalStorage,
 } from "./localStorage";
-// import { applyMiddleware, compose, combineReducers } from "redux";
-// import thunk from "redux-thunk";
+import { combineReducers } from "redux";
+import thunk from "redux-thunk";
 
+const rootReducer = combineReducers({
+  reducerTopList,
+  reducerCatalog,
+  reducerHeadSearch,
+  reducerCatalogSearch,
+  reducerItem, 
+  reducerCart
+});
 
 const store = configureStore({
-  reducer: {
-    reducerTopList,
-    reducerCatalog,
-    reducerHeadSearch,
-    reducerCatalogSearch,
-    reducerItem, 
-    reducerCart
-  },
+  reducer: rootReducer,
   preloadedState: { reducerCart: loadFromLocalStorage("reducerCart") },
-});
+  middleware: [thunk]
+})
 
 store.subscribe(() => {
   saveToLocalStorage("reducerCart", store.getState().reducerCart);
 });
 
-
 export default store;
-
-// const rootReducer = combineReducers({
-//   reducerTopList,
-// });
-
-// const store = configureStore({
-//   reducer: rootReducer,
-//   middleware: [thunk]
-// })
-
-// const reducer = ({
-//     reducerTopList
-//   });
-
-// const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
-
-// const store = configureStore(reducer, composeEnhancers(applyMiddleware(thunk)));

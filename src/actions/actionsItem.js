@@ -1,6 +1,6 @@
 import { itemRequest, itemRequestSusccess, itemRequestFailure } from '../reducers/reducerItem';
 
-export const fetchItem = async (dispatch, id) => {
+export const fetchItemThunkCreator = (id) => async (dispatch) => {
   dispatch(itemRequest());
   try {
     const response = await fetch(`${process.env.REACT_APP_API_URL}/api/items/${id}`)

@@ -8,18 +8,18 @@ import HeaderSearchForm from './HeaderSearchForm';
 function HeaderNavBar() {
   return (
     <nav className="navbar navbar-expand-sm navbar-light bg-light">
-            <HeaderLogo />
-            <div className="collapase navbar-collapse" id="navbarMain">
-             <HeaderMenu />
-              <div>
-                <div className="header-controls-pics">
-                  <HeaderSearchButton />
-                  <HeaderCart />
-                </div>
-                <HeaderSearchForm />
-              </div>
-            </div>
-          </nav>
+      <HeaderLogo />
+      <div className="collapase navbar-collapse" id="navbarMain">
+        <HeaderMenu />
+        <div>
+          <div className="header-controls-pics">
+            <HeaderSearchButton />
+            <HeaderCart />
+          </div>
+          <HeaderSearchForm />
+        </div>
+      </div>
+    </nav>
   )
 }
 

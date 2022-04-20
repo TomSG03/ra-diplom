@@ -8,9 +8,14 @@ function TopList() {
   const { items, loading, error } = useSelector(state => state.reducerTopList);
   const dispatch = useDispatch();
 
+  // useEffect(() => {
+  //   fetchTL(dispatch)
+  // }, [dispatch])
+
   useEffect(() => {
-    fetchTL(dispatch)
+    dispatch(fetchTL)
   }, [dispatch])
+
 
   return (
     <>

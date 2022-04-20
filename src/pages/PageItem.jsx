@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import { fetchItem } from '../actions/actionsItem'
+import { fetchItemThunkCreator } from '../actions/actionsItem'
 import Loader from '../components/Loader'
 import Item from '../components/Item'
 
@@ -11,10 +11,13 @@ function PageItem() {
   const dispatch = useDispatch();
   const { id } = useParams();
 
-  useEffect(() => {
-    fetchItem(dispatch, id)
-  }, [dispatch, id])
+  // useEffect(() => {
+  //   fetchItem(dispatch, id)
+  // }, [dispatch, id])
 
+  useEffect(() => {
+    dispatch(fetchItemThunkCreator(id));
+  }, [dispatch, id])
 
   return (
     <>
